@@ -1,0 +1,5 @@
+bloger_blog:
+    resource: "@BlogerBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

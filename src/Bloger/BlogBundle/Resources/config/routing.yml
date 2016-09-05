@@ -1,0 +1,24 @@
+BlogerBlogBundle_homepage:
+    path:     /
+    defaults: { _controller: "BlogerBlogBundle:Page:index" }
+    requirements:
+         methods:  GET
+
+BlogerBlogBundle_about:
+    path:   /about
+    defaults: { _controller: "BlogerBlogBundle:Page:about" }
+    requirements:
+         methods:  GET
+
+BlogerBlogBundle_contact:
+      path:  /contact
+      defaults: { _controller: "BlogerBlogBundle:Page:contact" }
+      requirements:
+      methods:  GET|POST
+
+BlogerBlogBundle_blog_show:
+    path:  /{id}
+    defaults: { _controller: "BlogerBlogBundle:Blog:show" }
+    requirements:
+        methods:  GET
+        id: \d+
