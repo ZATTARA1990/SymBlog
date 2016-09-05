@@ -22,3 +22,10 @@ BlogerBlogBundle_blog_show:
     requirements:
         methods:  GET
         id: \d+
+
+BlogerBlogBundle_comment_create:
+    path:  /comment/{blog_id}
+    defaults: { _controller: "BlogerBlogBundle:Comment:create" }
+    requirements:
+        methods:  POST
+        blog_id: \d+
