@@ -1,4 +1,5 @@
 services:
-#    bloger_blog.example:
-#        class: Bloger\BlogBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+ bloger_blog.twig.extension:
+        class: Bloger\BlogBundle\Twig\Extensions\BlogerBlogExtension
+        tags:
+            - { name: twig.extension }

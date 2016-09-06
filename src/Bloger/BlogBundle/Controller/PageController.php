@@ -59,4 +59,26 @@ class PageController extends Controller
             'form' => $form->createView()
         ));
     }
+
+    public function sidebarAction()
+    {
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $tags = $em->getRepository('BlogerBlogBundle:Blog')
+            ->getTags();
+
+        $tagWeights = $em->getRepository('BlogerBlogBundle:Blog')
+            ->getTagWeights($tags);
+
+        $commentLimit   = $this->container
+            ->getParameter('bloger_blog.comments.latest_comment_limit');
+        $latestComments = $em->getRepository('BlogerBlogBundle:Comment')
+            ->getLatestComments($commentLimit);
+
+        return $this->render('BlogerBlogBundle:Page:sidebar.html.twig', array(
+            'tags' => $tagWeights,
+            'latestComments'    => $latestComments,
+        ));
+    }
 }
